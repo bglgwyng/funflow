@@ -1,3 +1,4 @@
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE OverloadedStrings #-}
 
@@ -6,20 +7,21 @@ module Docker.API.Client.Internal.Requests where
 
 import Conduit (filterC, mapC)
 import Control.Monad.Except
+import Control.Monad.IO.Class (liftIO)
 import Control.Monad.Trans.Resource (runResourceT)
 import Data.Aeson (eitherDecode, encode)
-import qualified Data.ByteString.Char8 as B
-import qualified Data.ByteString.Lazy.Char8 as LBS
+import Data.ByteString.Char8 qualified as B
+import Data.ByteString.Lazy.Char8 qualified as LBS
 import Data.Conduit (runConduit, (.|))
 import Data.Conduit.Combinators (sinkFile, sinkNull, stdout)
-import qualified Data.Conduit.Tar as Tar
+import Data.Conduit.Tar qualified as Tar
 import Data.Conduit.Zlib (ungzip)
-import qualified Data.Text as T
+import Data.Text qualified as T
 import Docker.API.Client.Internal.Schemas (ContainerId, CreateContainer (..), CreateContainerResponse (..), WaitContainerResponse (..))
 import Docker.API.Client.Internal.Types (ClientErrorMonad, ContainerLogType (..), ContainerSpec (image), DockerClientError (..))
 import Docker.API.Client.Internal.Util (chownTarballContent, containerSpecToCreateContainer, createLogTypeFilter, parseMultiplexedDockerStream)
 import Network.HTTP.Client
-import qualified Network.HTTP.Conduit as HTTPC
+import Network.HTTP.Conduit qualified as HTTPC
 import Network.HTTP.Types.Header (hContentType)
 import Network.HTTP.Types.Status (Status, status200, status201, status204, statusCode, statusMessage)
 import System.Posix.Types (GroupID, UserID)
