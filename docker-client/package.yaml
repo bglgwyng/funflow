@@ -30,7 +30,7 @@ dependencies:
   - string-conversions
   - tar-conduit
   - text                          >= 2.0.1 && < 2.1
-  - unix-compat == 0.6
+  - unix >= 2.8
 
 library:
   source-dirs: src
@@ -49,4 +49,4 @@ tests:
       - tasty-hunit
       - temporary
       - text
-      - unix-compat == 0.6
+      - unix >= 2.8

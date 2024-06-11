@@ -33,7 +33,7 @@ dependencies:
   - store
   - temporary
   - text >= 2.0
-  - unix-compat == 0.6
+  - unix >= 2.8
   - unliftio
   - unordered-containers
   - utf8-string
