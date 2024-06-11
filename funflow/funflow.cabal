@@ -61,7 +61,7 @@ library
     , store
     , temporary
     , text >=2.0
-    , unix-compat
+    , unix-compat == 0.6
     , unliftio
     , unordered-containers
     , utf8-string
@@ -100,7 +100,7 @@ test-suite test-funflow
     , store
     , temporary
     , text >=2.0
-    , unix-compat
+    , unix-compat == 0.6
     , unliftio
     , unordered-containers
     , utf8-string
@@ -146,7 +146,7 @@ test-suite unit-tests
     , tasty-quickcheck
     , temporary
     , text >=2.0
-    , unix-compat
+    , unix-compat == 0.6
     , unliftio
     , unordered-containers
     , utf8-string
